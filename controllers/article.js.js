@@ -26,11 +26,12 @@ const posts = {
         type: 'base64',
         album: process.env.IMGUR_ALBUM_ID,
       });
-      const { body } = req;
+      const { name, userId, message } = req.body;
       await Article.create({
-        userId: body.userId,
+        name,
+        userId,
         photo: response.data.link,
-        message: body.message,
+        message,
       });
       res.status(200).send({
         status: 'success',

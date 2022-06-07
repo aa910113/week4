@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 const articleSchema = new mongoose.Schema(
   {
+    name: {
+      type: String,
+      required: [true, '使用者名稱未填寫'],
+    },
     userId: {
       type: String,
       required: [true, '使用者ID未填寫'],
